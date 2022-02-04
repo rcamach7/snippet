@@ -5,6 +5,7 @@ import { initializeApp } from "firebase/app";
 import { getFirebaseConfig } from "../data/config";
 import { useEffect, useState } from "react";
 import { getFirestore, collection, query, getDocs } from "firebase/firestore";
+import { Link, Outlet } from "react-router-dom";
 import { v4 } from "uuid";
 
 function Home() {
@@ -31,8 +32,6 @@ function Home() {
 
   return (
     <div className="Home pattern-dots-sm">
-      <Navbar />
-
       <main>
         <h1 className="pattern-checks-sm sm-mint white text-pattern">
           Snippet
@@ -44,23 +43,24 @@ function Home() {
           </strong>
         </p>
         <input type="text" placeholder="Search collection..." />
-        {/* <button onClick={() => console.log(folders)}>Print State</button> */}
 
         <h3>
           <strong>Documented Technologies</strong>
         </h3>
         {folders.map((folder) => {
-          return <Folder key={v4()} name={folder.name} />;
+          return (
+            <Link
+              to={`/tech/${folder.name}`}
+              className="Folder pattern-vertical-lines-sm"
+              key={v4()}
+            >
+              <p>{folder.name}</p>
+            </Link>
+          );
         })}
-      </main>
-    </div>
-  );
-}
 
-function Folder(props) {
-  return (
-    <div className="Folder pattern-vertical-lines-sm">
-      <p>{props.name}</p>
+        <Outlet />
+      </main>
     </div>
   );
 }
