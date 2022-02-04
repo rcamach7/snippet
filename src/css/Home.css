@@ -28,16 +28,44 @@ a:active {
 
 .Home {
   height: 100vh;
+}
+.Home main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.Home main p {
   text-align: center;
 }
-.Home h1 {
-  font-size: 35px;
+.Home main h1 {
+  background-color: #051a2c;
+  color: grey;
+  font-size: 40px;
   margin-top: 25px;
+  margin-bottom: 10px;
 }
-.Home input {
-  margin-top: 25px;
+.Home main input {
+  margin-top: 30px;
+  margin-bottom: 15px;
   padding: 5px;
   width: 250px;
+}
+.Home main h3 {
+  margin-bottom: 15px;
+}
+
+.Folder {
+  width: 300px;
+  padding: 25px;
+  margin-bottom: 10px;
+  color: grey;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  cursor: pointer;
+}
+.Folder p {
+  font-weight: bolder;
+  color: black;
 }
 
 /*# sourceMappingURL=Home.css.map */
