@@ -6,11 +6,12 @@
     Roboto, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol";
 }
+a,
 a:hover,
 a:visited,
 a:active {
   text-decoration: none;
-  color: inherit;
+  color: black;
 }
 
 .Navbar {
@@ -22,7 +23,8 @@ a:active {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  p {
+  .link {
+    color: white;
     font-size: 1.5rem;
     margin-right: 20px;
     cursor: pointer;
@@ -74,5 +76,7 @@ a:active {
   p {
     font-weight: bolder;
     color: black;
+  }
+  .links {
   }
 }
