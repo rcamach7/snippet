@@ -1,34 +1,10 @@
 import "../css/Home.css";
 import "pattern.css/dist/pattern.css";
-import Navbar from "./Navbar";
-import { initializeApp } from "firebase/app";
-import { getFirebaseConfig } from "../data/config";
-import { useEffect, useState } from "react";
-import { getFirestore, collection, query, getDocs } from "firebase/firestore";
-import { Link, Outlet } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { v4 } from "uuid";
 
 function Home() {
-  const [folders, setFolders] = useState([]);
-  const firebaseApp = initializeApp(getFirebaseConfig());
-
-  useEffect(() => {
-    loadFolders();
-  }, []);
-
-  const loadFolders = async () => {
-    const data = [];
-    // Request Data from our database.
-    const querySnapshot = await getDocs(
-      query(collection(getFirestore(), "technologies"))
-    );
-
-    querySnapshot.forEach((techFolder) => {
-      data.push(techFolder.data());
-    });
-
-    setFolders(data);
-  };
+  const technologies = ["css", "javascript", "firebase"];
 
   return (
     <div className="Home pattern-dots-sm">
@@ -47,19 +23,17 @@ function Home() {
         <h3>
           <strong>Documented Technologies</strong>
         </h3>
-        {folders.map((folder) => {
+        {technologies.map((name) => {
           return (
             <Link
-              to={`/tech/${folder.name}`}
+              to={`/tech/${name}`}
               className="Folder pattern-vertical-lines-sm"
               key={v4()}
             >
-              <p>{folder.name}</p>
+              <p>{name}</p>
             </Link>
           );
         })}
-
-        <Outlet />
       </main>
     </div>
   );
