@@ -1,4 +1,5 @@
 import React from "react";
+import "pattern.css/dist/pattern.css";
 import ReactDOM from "react-dom";
 import Home from "./components/Home";
 import Technology from "./routes/Technology";

@@ -14,10 +14,6 @@ function Technology() {
     loadDatabase();
   }, []);
 
-  useEffect(() => {
-    console.log(snippets);
-  }, [snippets]);
-
   const loadDatabase = async () => {
     const data = [];
     // Query our database for all documents in a specific collection
@@ -33,7 +29,7 @@ function Technology() {
 
   return (
     <div className="Technology">
-      <h1>Technology Page: {params.technology}</h1>
+      <h1>{params.technology.toUpperCase()}</h1>
     </div>
   );
 }
