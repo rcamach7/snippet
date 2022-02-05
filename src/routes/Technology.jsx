@@ -1,17 +1,26 @@
 import "../css/Technology.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { v4 } from "uuid";
 import { initializeApp } from "firebase/app";
 import { getFirebaseConfig } from "../data/config";
-import { getFirestore, collection, getDocs, query } from "firebase/firestore";
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  query,
+  setDoc,
+  doc,
+} from "firebase/firestore";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import AddSnippet from "../components/AddSnippet";
+import Snippet from "../components/Snippet";
 
 function Technology() {
   const [showForm, setShowForm] = useState(false);
   const [snippets, setSnippets] = useState([]);
-  const firebaseApp = initializeApp(getFirebaseConfig());
+  initializeApp(getFirebaseConfig());
   let params = useParams();
 
   useEffect(() => {
@@ -40,15 +49,48 @@ function Technology() {
     }
   };
 
+  const handleAddSnippet = async (performsIn, snippetIn) => {
+    try {
+      await setDoc(doc(getFirestore(), params.technology, v4()), {
+        performs: performsIn,
+        snippet: snippetIn,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+
+    const updatedSnippets = [...snippets];
+    updatedSnippets.push({ performs: performsIn, snippet: snippetIn });
+    setSnippets(updatedSnippets);
+  };
+
   return (
     <div className="Technology">
-      <h1>{params.technology.toUpperCase()}</h1>
+      <h2>
+        {params.technology.substring(0, 1).toUpperCase() +
+          params.technology.substring(1)}{" "}
+        Collection
+      </h2>
+      <button style={{ width: "200px" }} onClick={() => console.log(snippets)}>
+        Print State
+      </button>
       {showForm ? (
         <AddSnippet
           technology={params.technology.toUpperCase()}
           toggleForm={toggleForm}
+          handleAddSnippet={handleAddSnippet}
         />
       ) : null}
+      {/* Map through our snippets and return Snippet components with their relative data */}
+      {snippets.map((curSnippet) => {
+        return (
+          <Snippet
+            performs={curSnippet.performs}
+            snippet={curSnippet.snippet}
+            key={v4()}
+          />
+        );
+      })}
 
       <FontAwesomeIcon
         onClick={() => toggleForm()}

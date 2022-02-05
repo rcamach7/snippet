@@ -1,10 +1,16 @@
 import "../css/AddSnippet.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWindowClose } from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react";
 
 function AddSnippet(props) {
+  const [performs, setPerforms] = useState("");
+  const [snippet, setSnippet] = useState("");
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    props.handleAddSnippet(performs, snippet);
+    props.toggleForm();
   };
 
   return (
@@ -20,10 +26,16 @@ function AddSnippet(props) {
           className="snippet"
           cols="30"
           rows="2"
-          placeholder="Description of what this snippet of code performs"
+          value={performs}
+          onChange={(e) => setPerforms(e.target.value)}
         />
         <p>Paste formatted code below:</p>
-        <textarea cols="30" rows="10" />
+        <textarea
+          cols="30"
+          rows="10"
+          value={snippet}
+          onChange={(e) => setSnippet(e.target.value)}
+        />
 
         <input type="submit" value="Submit Snippet" />
       </form>
