@@ -1,0 +1,57 @@
+.AddSnippet {
+  padding: 5px;
+  outline: auto;
+}
+.AddSnippet .AddSnippet-form {
+  width: clamp(300px, 75vw, 700px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 10px 10px 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.AddSnippet .AddSnippet-form .formTitle {
+  text-align: center;
+}
+.AddSnippet .AddSnippet-form .snippet,
+.AddSnippet .AddSnippet-form textarea,
+.AddSnippet .AddSnippet-form input {
+  width: 100%;
+}
+.AddSnippet .AddSnippet-form input {
+  font-weight: bolder;
+  color: white;
+  background-color: #333333;
+  border: none;
+  margin: 5px 0 5px 0;
+  padding: 2.5px;
+}
+.AddSnippet .AddSnippet-form .snippet {
+  resize: none;
+}
+.AddSnippet .AddSnippet-form .closeForm-btn {
+  margin-left: auto;
+  color: red;
+  cursor: pointer;
+}
+
+.add-btn {
+  background-color: white;
+  animation: flashing 5s infinite linear;
+  cursor: pointer;
+}
+
+@keyframes flashing {
+  0% {
+    opacity: 0.2;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
+
+/*# sourceMappingURL=AddSnippet.css.map */

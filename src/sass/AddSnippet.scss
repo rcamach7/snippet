@@ -1,0 +1,59 @@
+.AddSnippet {
+  padding: 5px;
+  outline: auto;
+
+  .AddSnippet-form {
+    width: clamp(300px, 75vw, 700px);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 5px 10px 10px 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+    .formTitle {
+      text-align: center;
+    }
+    .snippet,
+    textarea,
+    input {
+      width: 100%;
+    }
+    input {
+      font-weight: bolder;
+      color: white;
+      background-color: rgb(51, 51, 51);
+      border: none;
+      margin: 5px 0 5px 0;
+      padding: 2.5px;
+    }
+    .snippet {
+      resize: none;
+    }
+    .closeForm-btn {
+      margin-left: auto;
+      color: red;
+      cursor: pointer;
+    }
+  }
+}
+
+.add-btn {
+  background-color: white;
+  animation: flashing 5s infinite linear;
+  cursor: pointer;
+}
+
+@keyframes flashing {
+  0% {
+    opacity: 0.2;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
