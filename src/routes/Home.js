@@ -33,7 +33,7 @@ function Home() {
         {technologies.map((name) => {
           return (
             <Link
-              to={`/tech/${name}`}
+              to={`/snippet/${name}`}
               className="Folder pattern-vertical-lines-sm"
               key={v4()}
             >

@@ -11,8 +11,8 @@ ReactDOM.render(
   <BrowserRouter>
     <Navbar />
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/tech/:technology" element={<Technology />} />
+      <Route path="/snippet" element={<Home />} />
+      <Route path="/snippet/:technology" element={<Technology />} />
       <Route
         path="*"
         element={
