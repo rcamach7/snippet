@@ -12,7 +12,7 @@ function Home() {
   return (
     <div className="Home pattern-dots-sm">
       <main>
-        <h1>console.log("Hello World");</h1>
+        <h1>console.log('Hello World');</h1>
         <h3>
           <strong>
             A modest collection of frequently used code blocks available to copy

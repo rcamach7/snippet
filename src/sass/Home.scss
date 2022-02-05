@@ -14,7 +14,8 @@ a:active {
 }
 
 .Navbar {
-  height: 50px;
+  height: 7vh;
+  min-height: 50px;
 
   color: white;
   background-color: rgba(0, 0, 0, 0.8);
@@ -24,11 +25,12 @@ a:active {
   align-items: center;
   .link {
     color: white;
-    font-size: 1.5rem;
+    font-size: 2rem;
     margin-right: 20px;
     cursor: pointer;
   }
   h1 {
+    font-size: 2rem;
     margin-left: 20px;
     background-color: rgb(223, 207, 207);
   }

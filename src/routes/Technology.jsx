@@ -1,4 +1,6 @@
 import "../css/Technology.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { initializeApp } from "firebase/app";
 import { getFirebaseConfig } from "../data/config";
 import { getFirestore, collection, getDocs, query } from "firebase/firestore";
@@ -7,6 +9,7 @@ import { useEffect, useState } from "react";
 import AddSnippet from "../components/AddSnippet";
 
 function Technology() {
+  const [showForm, setShowForm] = useState(false);
   const [snippets, setSnippets] = useState([]);
   const firebaseApp = initializeApp(getFirebaseConfig());
   let params = useParams();
@@ -28,10 +31,36 @@ function Technology() {
     setSnippets(data);
   };
 
+  const toggleForm = () => {
+    console.log(showForm);
+    if (showForm) {
+      setShowForm(false);
+    } else {
+      setShowForm(true);
+    }
+  };
+
   return (
     <div className="Technology">
       <h1>{params.technology.toUpperCase()}</h1>
-      <AddSnippet technology={params.technology.toUpperCase()} />
+      {showForm ? (
+        <AddSnippet
+          technology={params.technology.toUpperCase()}
+          toggleForm={toggleForm}
+        />
+      ) : null}
+
+      <FontAwesomeIcon
+        onClick={() => toggleForm()}
+        className="add-btn"
+        icon={faPlus}
+        style={{
+          fontSize: "50px",
+          position: "absolute",
+          bottom: "5",
+          right: "5",
+        }}
+      />
     </div>
   );
 }
