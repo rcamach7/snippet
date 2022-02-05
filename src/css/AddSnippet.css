@@ -1,0 +1,23 @@
+.AddSnippet {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  outline: auto;
+  padding: 5px 10px 10px 10px;
+}
+.AddSnippet .formTitle {
+  text-align: center;
+}
+.AddSnippet .snippet,
+.AddSnippet textarea {
+  width: 50vw;
+}
+.AddSnippet .snippet {
+  resize: none;
+}
+.AddSnippet input {
+  width: 300px;
+}
+
+/*# sourceMappingURL=AddSnippet.css.map */

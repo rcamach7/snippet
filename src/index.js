@@ -1,10 +1,10 @@
 import React from "react";
 import "pattern.css/dist/pattern.css";
 import ReactDOM from "react-dom";
-import Home from "./components/Home";
 import Technology from "./routes/Technology";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import Home from "./routes/Home";
 
 const rootElement = document.getElementById("root");
 ReactDOM.render(

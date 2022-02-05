@@ -4,6 +4,7 @@ import { getFirebaseConfig } from "../data/config";
 import { getFirestore, collection, getDocs, query } from "firebase/firestore";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import AddSnippet from "../components/AddSnippet";
 
 function Technology() {
   const [snippets, setSnippets] = useState([]);
@@ -30,6 +31,7 @@ function Technology() {
   return (
     <div className="Technology">
       <h1>{params.technology.toUpperCase()}</h1>
+      <AddSnippet technology={params.technology.toUpperCase()} />
     </div>
   );
 }
