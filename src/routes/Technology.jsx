@@ -71,9 +71,9 @@ function Technology() {
           params.technology.substring(1)}{" "}
         Collection
       </h2>
-      <button style={{ width: "200px" }} onClick={() => console.log(snippets)}>
+      {/* <button style={{ width: "200px" }} onClick={() => console.log(snippets)}>
         Print State
-      </button>
+      </button> */}
       {showForm ? (
         <AddSnippet
           technology={params.technology.toUpperCase()}
@@ -82,15 +82,18 @@ function Technology() {
         />
       ) : null}
       {/* Map through our snippets and return Snippet components with their relative data */}
-      {snippets.map((curSnippet) => {
-        return (
-          <Snippet
-            performs={curSnippet.performs}
-            snippet={curSnippet.snippet}
-            key={v4()}
-          />
-        );
-      })}
+      <div className="SnippetContainer">
+        {snippets.map((curSnippet) => {
+          return (
+            <Snippet
+              performs={curSnippet.performs}
+              snippet={curSnippet.snippet}
+              key={v4()}
+              language={params.technology}
+            />
+          );
+        })}
+      </div>
 
       <FontAwesomeIcon
         onClick={() => toggleForm()}

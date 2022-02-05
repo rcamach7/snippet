@@ -3,4 +3,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  .SnippetContainer {
+    width: clamp(300px, 90vw, 800px);
+    padding: 5px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
 }
