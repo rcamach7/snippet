@@ -1,11 +1,9 @@
 import "../css/Home.css";
 import { Link } from "react-router-dom";
+import AddTechnologyForm from "../components/AddTechnologyForm";
 import { v4 } from "uuid";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { a11yDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
-import AddTechnologyForm from "../components/AddTechnologyForm";
 import { useEffect, useState } from "react";
 import { initializeApp } from "firebase/app";
 import { getFirebaseConfig } from "../data/config";
@@ -16,6 +14,8 @@ import {
   getDoc,
   updateDoc,
 } from "firebase/firestore";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus, faWindowClose } from "@fortawesome/free-solid-svg-icons";
 
 function Home() {
   const [showForm, setShowForm] = useState(false);
@@ -30,12 +30,7 @@ function Home() {
       try {
         const docRef = doc(getFirestore(), "root", "websiteData");
         const docSnap = await getDoc(docRef);
-
-        if (docSnap.exists()) {
-          setTechnologies(docSnap.data().technologyFolders);
-        } else {
-          console.log("No such document!");
-        }
+        setTechnologies(docSnap.data().technologyFolders);
       } catch (error) {
         console.log(error);
       }
@@ -44,11 +39,7 @@ function Home() {
   }, []);
 
   const toggleForm = () => {
-    if (showForm) {
-      setShowForm(false);
-    } else {
-      setShowForm(true);
-    }
+    showForm ? setShowForm(false) : setShowForm(true);
   };
 
   const handleAddTechnology = async (
@@ -80,6 +71,22 @@ function Home() {
     setTechnologies([...technologies, technologyIn]);
   };
 
+  const handleDeleteTechnology = async (name) => {
+    try {
+      let updatedTechnologies = [...technologies];
+      updatedTechnologies.splice(updatedTechnologies.indexOf(name), 1);
+      setTechnologies(updatedTechnologies);
+
+      // Update Database to remove loading of this specific collection (does not delete collection from DB)
+      const documentReference = doc(getFirestore(), "root", "websiteData");
+      await updateDoc(documentReference, {
+        technologyFolders: updatedTechnologies,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="Home pattern-dots-sm">
       <main>
@@ -104,9 +111,16 @@ function Home() {
 
         {technologies.map((name) => {
           return (
-            <Link to={`/snippet/${name}`} className="Folder" key={v4()}>
-              <p>{name}</p>
-            </Link>
+            <div to={`/snippet/${name}`} className="Folder" key={v4()}>
+              <FontAwesomeIcon
+                className="delete-btn"
+                icon={faWindowClose}
+                onClick={() => handleDeleteTechnology(name)}
+              />
+              <Link className="folder-link" to={`/snippet/${name}`}>
+                {name}
+              </Link>
+            </div>
           );
         })}
 

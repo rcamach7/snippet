@@ -65,19 +65,26 @@ a:active {
 }
 .Home main .Folder {
   width: 350px;
-  padding: 20px;
+  padding: 10px 20px 20px 20px;
   border-radius: 10px;
   margin-bottom: 10px;
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   background: linear-gradient(to right, #000000, #434343);
+  display: flex;
+  flex-direction: column;
+}
+.Home main .Folder .delete-btn {
+  color: white;
+  margin-left: auto;
   cursor: pointer;
 }
-.Home main .Folder p {
+.Home main .Folder .folder-link {
   text-align: center;
   font-weight: bolder;
   font-size: 20px;
   color: white;
+  cursor: pointer;
 }
 .Home main .addTechIcon {
   background-color: white;

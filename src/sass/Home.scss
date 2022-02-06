@@ -73,7 +73,7 @@ a:active {
 
     .Folder {
       width: 350px;
-      padding: 20px;
+      padding: 10px 20px 20px 20px;
 
       border-radius: 10px;
       margin-bottom: 10px;
@@ -82,13 +82,19 @@ a:active {
       box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
       background: linear-gradient(to right, #000000, #434343);
 
-      cursor: pointer;
-
-      p {
+      display: flex;
+      flex-direction: column;
+      .delete-btn {
+        color: white;
+        margin-left: auto;
+        cursor: pointer;
+      }
+      .folder-link {
         text-align: center;
         font-weight: bolder;
         font-size: 20px;
         color: white;
+        cursor: pointer;
       }
     }
 
