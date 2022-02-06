@@ -2,8 +2,6 @@ import "../css/Technology.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { v4 } from "uuid";
-import { initializeApp } from "firebase/app";
-import { getFirebaseConfig } from "../data/config";
 import {
   getFirestore,
   collection,
@@ -20,7 +18,6 @@ import Snippet from "../components/Snippet";
 function Technology() {
   const [showForm, setShowForm] = useState(false);
   const [snippets, setSnippets] = useState([]);
-  initializeApp(getFirebaseConfig());
   let params = useParams();
 
   useEffect(() => {

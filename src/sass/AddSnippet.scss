@@ -27,7 +27,7 @@
       color: white;
       background-color: rgb(51, 51, 51);
       border: none;
-      margin: 5px 0 5px 0;
+      margin: 5px 0 2.5px 0;
       padding: 2.5px;
     }
     .snippet {
@@ -35,6 +35,7 @@
     }
     .closeForm-btn {
       margin-left: auto;
+      margin-bottom: 5px;
       color: red;
       cursor: pointer;
     }

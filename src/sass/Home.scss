@@ -45,11 +45,24 @@ a:active {
     align-items: center;
 
     // Web title using Syntax Highlighter Component
-    .homeTitle {
-      margin-top: 10px;
-      font-size: 25px;
+    .titleContainer {
+      width: clamp(370px, 99vw, 500px);
+      height: 275px;
+
+      margin-top: 20px;
+      margin-bottom: 20px;
+
       border-radius: 10px;
-      padding: 10px !important;
+      background-color: rgb(43, 43, 43);
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .homeTitle {
+        font-size: 25px;
+        padding: 10px !important;
+      }
     }
     h3 {
       padding: 5px;
@@ -59,7 +72,7 @@ a:active {
     }
 
     .Folder {
-      width: 300px;
+      width: 350px;
       padding: 20px;
 
       border-radius: 10px;
@@ -67,7 +80,8 @@ a:active {
 
       background-color: white;
       box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-      background: linear-gradient(to right, #232526, #414345);
+      background: linear-gradient(to right, #000000, #434343);
+
       cursor: pointer;
 
       p {
@@ -79,6 +93,8 @@ a:active {
     }
 
     .addTechIcon {
+      background-color: white;
+      animation: flashing 5s infinite linear;
       cursor: pointer;
     }
   }

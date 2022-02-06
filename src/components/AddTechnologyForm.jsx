@@ -23,7 +23,9 @@ function AddTechnologyForm(props) {
         onClick={() => props.toggleForm()}
       />
 
-      <h2>Add New Technology</h2>
+      <h2 style={{ textAlign: "center" }}>
+        Add new technology, and first snippet.
+      </h2>
       <input
         type="text"
         placeholder="Enter new technology category"
@@ -31,13 +33,12 @@ function AddTechnologyForm(props) {
         required
       />
 
-      <p style={{ margin: "5px 0 2.5px 0" }}>What does the snippet perform?</p>
-      <textarea
+      <input
         className="performsInput"
-        cols="30"
-        rows="2"
         value={performs}
+        placeholder="What does this snippet perform?"
         onChange={(e) => setPerforms(e.target.value)}
+        style={{ padding: "5px", marginTop: "10px" }}
         required
       />
       <p style={{ margin: "5px 0 2.5px 0" }}>Paste formatted code below:</p>
