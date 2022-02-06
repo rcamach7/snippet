@@ -44,49 +44,38 @@ a:active {
     flex-direction: column;
     align-items: center;
 
-    h1 {
+    // Web title using Syntax Highlighter Component
+    .homeTitle {
       margin-top: 10px;
-      text-align: center;
+      font-size: 35px;
+      border-radius: 10px;
+      padding: 10px !important;
     }
     h3 {
       padding: 5px;
-      margin-top: 15px;
+      margin: 15px 0 15px 0;
       text-align: center;
       max-width: 600px;
     }
 
-    .SyntaxHighlighter {
-      margin-top: 10px;
-      outline: auto;
-    }
-    input {
-      margin-bottom: 15px;
-      padding: 5px;
-      width: 250px;
-    }
-    h4 {
-      padding: 10px 10px 5px 10px;
-      text-align: center;
-      margin-top: 25px;
-    }
-    p {
-      text-align: center;
-    }
-  }
-}
+    .Folder {
+      width: 300px;
+      padding: 20px;
 
-.Folder {
-  width: 300px;
-  padding: 25px;
-  margin-bottom: 10px;
+      border-radius: 10px;
+      margin-bottom: 10px;
 
-  color: grey;
-  background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  cursor: pointer;
+      background-color: white;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      background: linear-gradient(to right, #232526, #414345);
+      cursor: pointer;
 
-  p {
-    font-weight: bolder;
-    color: black;
+      p {
+        text-align: center;
+        font-weight: bolder;
+        font-size: 20px;
+        color: white;
+      }
+    }
   }
 }
