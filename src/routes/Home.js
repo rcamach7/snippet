@@ -20,6 +20,8 @@ import {
 function Home() {
   const [showForm, setShowForm] = useState(false);
   const [technologies, setTechnologies] = useState([]);
+  const welcomeText =
+    "console.log('Hello World');\n\n/*\nSelect a technology from the\noptions below or create\na new category\nand add a snippet!\n*/";
   initializeApp(getFirebaseConfig());
 
   // Load all current technology folders in our database on homepage component first mount
@@ -81,18 +83,16 @@ function Home() {
   return (
     <div className="Home pattern-dots-sm">
       <main>
-        <SyntaxHighlighter
-          language="javascript"
-          style={a11yDark}
-          showLineNumbers={true}
-          className="homeTitle"
-        >
-          console.log('Hello World');
-        </SyntaxHighlighter>
-        <h3>
-          Select a technology from the options below or create a new category
-          and add a snippet!
-        </h3>
+        <div className="titleContainer">
+          <SyntaxHighlighter
+            language="javascript"
+            style={a11yDark}
+            showLineNumbers={true}
+            className="homeTitle"
+          >
+            {welcomeText}
+          </SyntaxHighlighter>
+        </div>
 
         {/* Add Technology Toggled Form */}
         {showForm ? (

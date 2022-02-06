@@ -22,15 +22,14 @@ function AddSnippetForm(props) {
           icon={faWindowClose}
           onClick={() => props.toggleForm()}
         />
-        <p className="formTitle" style={{ margin: "5px 0 2.5px 0" }}>
-          New {props.technology} Snippet
-        </p>
         <textarea
           className="snippet"
           cols="30"
-          rows="2"
+          rows="1"
           value={performs}
+          placeholder="What does this snippet perform?"
           onChange={(e) => setPerforms(e.target.value)}
+          style={{ padding: "5px" }}
           required
         />
         <p style={{ margin: "5px 0 2.5px 0" }}>Paste formatted code below:</p>
