@@ -20,6 +20,7 @@
   width: 100%;
 }
 .AddSnippet .AddSnippet-form input {
+  border-radius: 5px;
   font-weight: bolder;
   color: white;
   background-color: #333333;

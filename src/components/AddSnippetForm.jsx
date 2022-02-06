@@ -3,13 +3,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWindowClose } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 
-function AddSnippet(props) {
+function AddSnippetForm(props) {
   const [performs, setPerforms] = useState("");
   const [snippet, setSnippet] = useState("");
+  const [language, setLanguage] = useState("css");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.handleAddSnippet(performs, snippet);
+    props.handleAddSnippet(performs, snippet, language);
     props.toggleForm();
   };
 
@@ -21,21 +22,38 @@ function AddSnippet(props) {
           icon={faWindowClose}
           onClick={() => props.toggleForm()}
         />
-        <p className="formTitle">New {props.technology} Snippet</p>
+        <p className="formTitle" style={{ margin: "5px 0 2.5px 0" }}>
+          New {props.technology} Snippet
+        </p>
         <textarea
           className="snippet"
           cols="30"
           rows="2"
           value={performs}
           onChange={(e) => setPerforms(e.target.value)}
+          required
         />
-        <p>Paste formatted code below:</p>
+        <p style={{ margin: "5px 0 2.5px 0" }}>Paste formatted code below:</p>
         <textarea
           cols="30"
           rows="10"
           value={snippet}
           onChange={(e) => setSnippet(e.target.value)}
+          required
         />
+
+        <label htmlFor="selectLanguage" style={{ margin: "5px 0 2.5px 0" }}>
+          Select language
+        </label>
+        <select
+          id="selectLanguage"
+          onChange={(e) => setLanguage(e.target.value)}
+        >
+          <option value="css">css</option>
+          <option value="javascript" defaultValue>
+            javascript
+          </option>
+        </select>
 
         <input type="submit" value="Submit Snippet" />
       </form>
@@ -43,4 +61,4 @@ function AddSnippet(props) {
   );
 }
 
-export default AddSnippet;
+export default AddSnippetForm;
