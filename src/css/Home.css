@@ -42,46 +42,33 @@ a:active {
   flex-direction: column;
   align-items: center;
 }
-.Home main h1 {
+.Home main .homeTitle {
   margin-top: 10px;
-  text-align: center;
+  font-size: 35px;
+  border-radius: 10px;
+  padding: 10px !important;
 }
 .Home main h3 {
   padding: 5px;
-  margin-top: 15px;
+  margin: 15px 0 15px 0;
   text-align: center;
   max-width: 600px;
 }
-.Home main .SyntaxHighlighter {
-  margin-top: 10px;
-  outline: auto;
-}
-.Home main input {
-  margin-bottom: 15px;
-  padding: 5px;
-  width: 250px;
-}
-.Home main h4 {
-  padding: 10px 10px 5px 10px;
-  text-align: center;
-  margin-top: 25px;
-}
-.Home main p {
-  text-align: center;
-}
-
-.Folder {
+.Home main .Folder {
   width: 300px;
-  padding: 25px;
+  padding: 20px;
+  border-radius: 10px;
   margin-bottom: 10px;
-  color: grey;
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background: linear-gradient(to right, #232526, #414345);
   cursor: pointer;
 }
-.Folder p {
+.Home main .Folder p {
+  text-align: center;
   font-weight: bolder;
-  color: black;
+  font-size: 20px;
+  color: white;
 }
 
 /*# sourceMappingURL=Home.css.map */

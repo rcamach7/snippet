@@ -41,7 +41,6 @@ function Technology() {
   };
 
   const toggleForm = () => {
-    console.log(showForm);
     if (showForm) {
       setShowForm(false);
     } else {
@@ -50,8 +49,10 @@ function Technology() {
   };
 
   const handleAddSnippet = async (performsIn, snippetIn) => {
+    const generateId = v4();
     try {
-      await setDoc(doc(getFirestore(), params.technology, v4()), {
+      await setDoc(doc(getFirestore(), params.technology, generateId), {
+        id: generateId,
         performs: performsIn,
         snippet: snippetIn,
       });
@@ -71,9 +72,6 @@ function Technology() {
           params.technology.substring(1)}{" "}
         Collection
       </h2>
-      {/* <button style={{ width: "200px" }} onClick={() => console.log(snippets)}>
-        Print State
-      </button> */}
       {showForm ? (
         <AddSnippet
           technology={params.technology.toUpperCase()}
