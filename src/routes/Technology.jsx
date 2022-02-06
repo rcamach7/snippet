@@ -14,7 +14,7 @@ import {
 } from "firebase/firestore";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import AddSnippet from "../components/AddSnippet";
+import AddSnippetForm from "../components/AddSnippetForm";
 import Snippet from "../components/Snippet";
 
 function Technology() {
@@ -48,11 +48,12 @@ function Technology() {
     }
   };
 
-  const handleAddSnippet = async (performsIn, snippetIn) => {
-    const generateId = v4();
+  const handleAddSnippet = async (performsIn, snippetIn, languageIn) => {
+    const generatedId = v4();
     try {
-      await setDoc(doc(getFirestore(), params.technology, generateId), {
-        id: generateId,
+      await setDoc(doc(getFirestore(), params.technology, generatedId), {
+        id: generatedId,
+        language: languageIn,
         performs: performsIn,
         snippet: snippetIn,
       });
@@ -61,7 +62,11 @@ function Technology() {
     }
 
     const updatedSnippets = [...snippets];
-    updatedSnippets.push({ performs: performsIn, snippet: snippetIn });
+    updatedSnippets.push({
+      performs: performsIn,
+      snippet: snippetIn,
+      id: generatedId,
+    });
     setSnippets(updatedSnippets);
   };
 
@@ -73,7 +78,7 @@ function Technology() {
         Collection
       </h2>
       {showForm ? (
-        <AddSnippet
+        <AddSnippetForm
           technology={params.technology.toUpperCase()}
           toggleForm={toggleForm}
           handleAddSnippet={handleAddSnippet}
@@ -87,7 +92,7 @@ function Technology() {
               performs={curSnippet.performs}
               snippet={curSnippet.snippet}
               key={v4()}
-              language={params.technology}
+              language={curSnippet.language}
             />
           );
         })}

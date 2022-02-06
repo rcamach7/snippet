@@ -14,7 +14,7 @@ a:active {
 }
 
 .Navbar {
-  height: 7vh;
+  height: 50px;
   min-height: 50px;
   color: white;
   background-color: rgba(0, 0, 0, 0.8);
@@ -35,7 +35,7 @@ a:active {
 }
 
 .Home {
-  height: 100vh;
+  height: calc(100vh - 50px);
 }
 .Home main {
   display: flex;
@@ -44,7 +44,7 @@ a:active {
 }
 .Home main .homeTitle {
   margin-top: 10px;
-  font-size: 35px;
+  font-size: 25px;
   border-radius: 10px;
   padding: 10px !important;
 }
@@ -69,6 +69,48 @@ a:active {
   font-weight: bolder;
   font-size: 20px;
   color: white;
+}
+.Home main .addTechIcon {
+  cursor: pointer;
+}
+
+.AddTechnologyForm {
+  background-color: white;
+  width: clamp(350px, 60vw, 500px);
+  padding: 5px;
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  outline: auto;
+}
+.AddTechnologyForm .closeForm-btn {
+  margin-left: auto;
+  color: red;
+  cursor: pointer;
+}
+.AddTechnologyForm h2 {
+  margin-bottom: 5px;
+}
+.AddTechnologyForm textarea,
+.AddTechnologyForm input {
+  width: 100%;
+}
+.AddTechnologyForm input {
+  border-radius: 5px;
+  padding: 5px;
+  width: 100%;
+}
+.AddTechnologyForm .performsInput {
+  resize: none;
+}
+.AddTechnologyForm .submit-btn {
+  margin: 5px 0 5px 0;
+  font-weight: bolder;
+  color: white;
+  background-color: #333333;
+  border: none;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=Home.css.map */

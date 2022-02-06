@@ -14,7 +14,7 @@ a:active {
 }
 
 .Navbar {
-  height: 7vh;
+  height: 50px;
   min-height: 50px;
 
   color: white;
@@ -37,7 +37,7 @@ a:active {
 }
 
 .Home {
-  height: 100vh;
+  height: calc(100vh - 50px);
 
   main {
     display: flex;
@@ -47,7 +47,7 @@ a:active {
     // Web title using Syntax Highlighter Component
     .homeTitle {
       margin-top: 10px;
-      font-size: 35px;
+      font-size: 25px;
       border-radius: 10px;
       padding: 10px !important;
     }
@@ -77,5 +77,52 @@ a:active {
         color: white;
       }
     }
+
+    .addTechIcon {
+      cursor: pointer;
+    }
+  }
+}
+
+.AddTechnologyForm {
+  background-color: white;
+  width: clamp(350px, 60vw, 500px);
+  padding: 5px;
+  margin-bottom: 15px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  outline: auto;
+
+  .closeForm-btn {
+    margin-left: auto;
+    color: red;
+    cursor: pointer;
+  }
+  h2 {
+    margin-bottom: 5px;
+  }
+
+  textarea,
+  input {
+    width: 100%;
+  }
+  input {
+    border-radius: 5px;
+    padding: 5px;
+    width: 100%;
+  }
+  .performsInput {
+    resize: none;
+  }
+
+  .submit-btn {
+    margin: 5px 0 5px 0;
+    font-weight: bolder;
+    color: white;
+    background-color: rgb(51, 51, 51);
+    border: none;
+    cursor: pointer;
   }
 }
