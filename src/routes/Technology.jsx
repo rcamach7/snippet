@@ -9,7 +9,9 @@ import {
   query,
   setDoc,
   doc,
+  deleteDoc,
 } from "firebase/firestore";
+import { connectFirebase } from "../data/config";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import AddSnippetForm from "../components/AddSnippetForm";
@@ -19,6 +21,7 @@ function Technology() {
   const [showForm, setShowForm] = useState(false);
   const [snippets, setSnippets] = useState([]);
   let params = useParams();
+  connectFirebase();
 
   useEffect(() => {
     loadDatabase();
@@ -67,6 +70,26 @@ function Technology() {
     setSnippets(updatedSnippets);
   };
 
+  const handleDeleteSnippet = async (id) => {
+    const updatedSnippets = [...snippets];
+
+    let indexToDelete = -1;
+    updatedSnippets.forEach((snippet, i) => {
+      if (snippet.id === id) {
+        indexToDelete = i;
+      }
+    });
+    updatedSnippets.splice(indexToDelete, 1);
+    setSnippets(updatedSnippets);
+
+    // Reflect deletion in database
+    try {
+      await deleteDoc(doc(getFirestore(), params.technology, id));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="Technology">
       <h2>
@@ -87,9 +110,11 @@ function Technology() {
           return (
             <Snippet
               performs={curSnippet.performs}
+              id={curSnippet.id}
               snippet={curSnippet.snippet}
               key={v4()}
               language={curSnippet.language}
+              handleDeleteSnippet={handleDeleteSnippet}
             />
           );
         })}

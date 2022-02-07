@@ -1,3 +1,5 @@
+import { initializeApp } from "firebase/app";
+
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyAnVoGRdldcNBYm62mVGbXOgnU116qLrnw",
@@ -18,4 +20,8 @@ export function getFirebaseConfig() {
   } else {
     return firebaseConfig;
   }
+}
+
+export function connectFirebase() {
+  initializeApp(getFirebaseConfig());
 }
