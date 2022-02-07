@@ -112,6 +112,7 @@ a:active {
 }
 .AddTechnologyForm textarea,
 .AddTechnologyForm input {
+  padding: 5px;
   width: 100%;
 }
 .AddTechnologyForm input {

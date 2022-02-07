@@ -17,6 +17,7 @@
 .AddSnippet .AddSnippet-form .snippet,
 .AddSnippet .AddSnippet-form textarea,
 .AddSnippet .AddSnippet-form input {
+  padding: 5px;
   width: 100%;
 }
 .AddSnippet .AddSnippet-form input {
