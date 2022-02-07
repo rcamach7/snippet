@@ -4,6 +4,14 @@
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
+  display: flex;
+  flex-direction: column;
+
+  .deleteSnippet-btn {
+    outline: auto;
+    margin-left: auto;
+    cursor: pointer;
+  }
   p {
     text-align: center;
     padding: 2px;

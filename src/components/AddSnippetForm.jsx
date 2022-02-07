@@ -48,10 +48,10 @@ function AddSnippetForm(props) {
           id="selectLanguage"
           onChange={(e) => setLanguage(e.target.value)}
         >
-          <option value="css">css</option>
           <option value="javascript" defaultValue>
             javascript
           </option>
+          <option value="css">css</option>
         </select>
 
         <input type="submit" value="Submit Snippet" />
