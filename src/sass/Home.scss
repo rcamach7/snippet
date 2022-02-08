@@ -99,53 +99,9 @@ a:active {
     }
 
     .addTechIcon {
-      background-color: white;
+      background-color: transparent;
       animation: flashing 5s infinite linear;
       cursor: pointer;
     }
-  }
-}
-
-.AddTechnologyForm {
-  background-color: white;
-  width: clamp(350px, 60vw, 500px);
-  padding: 5px;
-  margin-bottom: 15px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  outline: auto;
-
-  .closeForm-btn {
-    margin-left: auto;
-    color: red;
-    cursor: pointer;
-  }
-  h2 {
-    margin-bottom: 5px;
-  }
-
-  textarea,
-  input {
-    padding: 5px;
-    width: 100%;
-  }
-  input {
-    border-radius: 5px;
-    padding: 5px;
-    width: 100%;
-  }
-  .performsInput {
-    resize: none;
-  }
-
-  .submit-btn {
-    margin: 5px 0 5px 0;
-    font-weight: bolder;
-    color: white;
-    background-color: rgb(51, 51, 51);
-    border: none;
-    cursor: pointer;
   }
 }

@@ -1,3 +1,4 @@
+import "../css/AddTechnologyForm.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWindowClose } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";

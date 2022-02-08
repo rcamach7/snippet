@@ -129,6 +129,7 @@ function Technology() {
           position: "absolute",
           bottom: "5",
           right: "5",
+          backgroundColor: "transparent",
         }}
       />
     </div>
