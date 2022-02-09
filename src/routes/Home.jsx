@@ -89,6 +89,13 @@ function Home() {
 
   return (
     <div className="Home pattern-dots-sm">
+      {/* Add Technology Toggled Form */}
+      {showForm ? (
+        <AddTechnologyForm
+          toggleForm={toggleForm}
+          handleAddTechnology={handleAddTechnology}
+        />
+      ) : null}
       <main>
         <div className="titleContainer">
           <SyntaxHighlighter
@@ -100,14 +107,6 @@ function Home() {
             {welcomeText}
           </SyntaxHighlighter>
         </div>
-
-        {/* Add Technology Toggled Form */}
-        {showForm ? (
-          <AddTechnologyForm
-            toggleForm={toggleForm}
-            handleAddTechnology={handleAddTechnology}
-          />
-        ) : null}
 
         {technologies.map((name) => {
           return (
