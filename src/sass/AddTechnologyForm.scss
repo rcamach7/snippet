@@ -17,7 +17,7 @@
     padding: 10px;
     margin-bottom: 15px;
 
-    animation: drop-in 0.5s;
+    animation: drop-in 0.75s;
     @keyframes drop-in {
       from {
         transform: translateY(-25vh) rotate(180deg);

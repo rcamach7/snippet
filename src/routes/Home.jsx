@@ -88,7 +88,7 @@ function Home() {
   };
 
   return (
-    <div className="Home pattern-dots-sm">
+    <div className="Home pattern-grid-sm">
       {/* Add Technology Toggled Form */}
       {showForm ? (
         <AddTechnologyForm
@@ -108,20 +108,22 @@ function Home() {
           </SyntaxHighlighter>
         </div>
 
-        {technologies.map((name) => {
-          return (
-            <div to={`/snippet/${name}`} className="Folder" key={v4()}>
-              <FontAwesomeIcon
-                className="delete-btn"
-                icon={faWindowClose}
-                onClick={() => handleDeleteTechnology(name)}
-              />
-              <Link className="folder-link" to={`/snippet/${name}`}>
-                {name}
-              </Link>
-            </div>
-          );
-        })}
+        <div className="FolderContainer">
+          {technologies.map((name) => {
+            return (
+              <div to={`/snippet/${name}`} className="Folder" key={v4()}>
+                <FontAwesomeIcon
+                  className="delete-btn"
+                  icon={faWindowClose}
+                  onClick={() => handleDeleteTechnology(name)}
+                />
+                <Link className="folder-link" to={`/snippet/${name}`}>
+                  {name}
+                </Link>
+              </div>
+            );
+          })}
+        </div>
 
         <FontAwesomeIcon
           icon={faPlus}
