@@ -1,6 +1,4 @@
 import "../css/Technology.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { v4 } from "uuid";
 import {
   getFirestore,
@@ -92,21 +90,16 @@ function Technology() {
 
   return (
     <div className="Technology pattern-grid-sm">
-      <div
-        style={{
-          backgroundColor: "white",
-          padding: "0 10px 0 10px",
-          borderRadius: "5px",
-          marginTop: "5px",
-          border: "solid black 2px",
-        }}
-      >
+      <div className="page-title">
         <h2>
           {" "}
           {params.technology.substring(0, 1).toUpperCase() +
             params.technology.substring(1)}{" "}
           Collection
         </h2>
+        <button onClick={() => toggleForm()} className="addTechFolder-btn">
+          Add Snippet
+        </button>
       </div>
       {/* Map through our snippets and return Snippet components with their relative data */}
       <div className="SnippetContainer">
@@ -124,18 +117,6 @@ function Technology() {
         })}
       </div>
 
-      <FontAwesomeIcon
-        onClick={() => toggleForm()}
-        className="add-btn"
-        icon={faPlus}
-        style={{
-          fontSize: "50px",
-          position: "absolute",
-          bottom: "5",
-          right: "5",
-          backgroundColor: "transparent",
-        }}
-      />
       {showForm ? (
         <AddSnippetForm
           technology={params.technology.toUpperCase()}

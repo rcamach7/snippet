@@ -124,9 +124,17 @@ a:active {
       border: solid 2px rgb(245, 171, 53);
     }
 
-    .addTechIcon {
-      background-color: transparent;
-      animation: flashing 5s infinite linear;
+    .addTechFolder-btn {
+      font-size: 16px;
+      width: 175px;
+      padding: 5px 10px 5px 10px;
+
+      background: linear-gradient(to right, #000000, #434343);
+      color: white;
+      border-radius: 5px;
+      margin-bottom: 15px;
+      border: none;
+      outline: none;
       cursor: pointer;
     }
   }

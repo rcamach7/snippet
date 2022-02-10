@@ -15,13 +15,13 @@ import {
   updateDoc,
 } from "firebase/firestore";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus, faWindowClose } from "@fortawesome/free-solid-svg-icons";
+import { faWindowClose } from "@fortawesome/free-solid-svg-icons";
 
 function Home() {
   const [showForm, setShowForm] = useState(false);
   const [technologies, setTechnologies] = useState([]);
   const welcomeText =
-    "console.log('Hello World');\n\n/*\nSelect a technology from the\noptions below or create\na new category\nand add a snippet!\n*/";
+    "console.log('Hello World');\n\n/*\n  Select a technology from the\n  options below or create\n  a new category\n  and add a snippet!\n*/";
   initializeApp(getFirebaseConfig());
 
   // Load all current technology folders in our database on homepage component first mount
@@ -108,6 +108,10 @@ function Home() {
           </SyntaxHighlighter>
         </div>
 
+        <button onClick={() => toggleForm()} className="addTechFolder-btn">
+          Add Technology
+        </button>
+
         <div className="FolderContainer">
           {technologies.map((name) => {
             return (
@@ -124,18 +128,6 @@ function Home() {
             );
           })}
         </div>
-
-        <FontAwesomeIcon
-          icon={faPlus}
-          className="addTechIcon"
-          style={{
-            fontSize: "50px",
-            position: "absolute",
-            bottom: "5",
-            right: "5",
-          }}
-          onClick={() => toggleForm()}
-        />
       </main>
     </div>
   );
