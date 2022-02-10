@@ -97,13 +97,6 @@ function Technology() {
           params.technology.substring(1)}{" "}
         Collection
       </h2>
-      {showForm ? (
-        <AddSnippetForm
-          technology={params.technology.toUpperCase()}
-          toggleForm={toggleForm}
-          handleAddSnippet={handleAddSnippet}
-        />
-      ) : null}
       {/* Map through our snippets and return Snippet components with their relative data */}
       <div className="SnippetContainer">
         {snippets.map((curSnippet) => {
@@ -132,6 +125,13 @@ function Technology() {
           backgroundColor: "transparent",
         }}
       />
+      {showForm ? (
+        <AddSnippetForm
+          technology={params.technology.toUpperCase()}
+          toggleForm={toggleForm}
+          handleAddSnippet={handleAddSnippet}
+        />
+      ) : null}
     </div>
   );
 }

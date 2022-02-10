@@ -1,15 +1,29 @@
 .AddSnippet {
-  padding: 5px;
-  outline: auto;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
 }
 .AddSnippet .AddSnippet-form {
   width: clamp(300px, 75vw, 700px);
+  padding: 5px 10px 10px 10px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 5px 10px 10px 10px;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  animation: fall-in 0.75s;
+}
+@keyframes fall-in {
+  from {
+    transform: translateY(-25vh) rotate(360deg);
+    opacity: 25%;
+  }
 }
 .AddSnippet .AddSnippet-form .formTitle {
   text-align: center;
