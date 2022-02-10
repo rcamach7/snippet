@@ -91,19 +91,23 @@ function Technology() {
   };
 
   return (
-    <div className="Technology">
-      <h2>
-        {params.technology.substring(0, 1).toUpperCase() +
-          params.technology.substring(1)}{" "}
-        Collection
-      </h2>
-      {showForm ? (
-        <AddSnippetForm
-          technology={params.technology.toUpperCase()}
-          toggleForm={toggleForm}
-          handleAddSnippet={handleAddSnippet}
-        />
-      ) : null}
+    <div className="Technology pattern-grid-sm">
+      <div
+        style={{
+          backgroundColor: "white",
+          padding: "0 10px 0 10px",
+          borderRadius: "5px",
+          marginTop: "5px",
+          border: "solid black 2px",
+        }}
+      >
+        <h2>
+          {" "}
+          {params.technology.substring(0, 1).toUpperCase() +
+            params.technology.substring(1)}{" "}
+          Collection
+        </h2>
+      </div>
       {/* Map through our snippets and return Snippet components with their relative data */}
       <div className="SnippetContainer">
         {snippets.map((curSnippet) => {
@@ -132,6 +136,13 @@ function Technology() {
           backgroundColor: "transparent",
         }}
       />
+      {showForm ? (
+        <AddSnippetForm
+          technology={params.technology.toUpperCase()}
+          toggleForm={toggleForm}
+          handleAddSnippet={handleAddSnippet}
+        />
+      ) : null}
     </div>
   );
 }

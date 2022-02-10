@@ -1,35 +1,51 @@
-.AddTechnologyForm {
+.AddTechnology {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.AddTechnology .AddTechnologyForm {
   background-color: white;
   width: clamp(350px, 60vw, 500px);
-  padding: 5px;
+  border-radius: 10px;
+  padding: 10px;
   margin-bottom: 15px;
+  animation: drop-in 0.75s;
   display: flex;
   flex-direction: column;
   align-items: center;
-  outline: auto;
 }
-.AddTechnologyForm .closeForm-btn {
+@keyframes drop-in {
+  from {
+    transform: translateY(-25vh) rotate(180deg);
+    opacity: 50%;
+  }
+}
+.AddTechnology .AddTechnologyForm .closeForm-btn {
   margin-left: auto;
   color: red;
   cursor: pointer;
 }
-.AddTechnologyForm h2 {
+.AddTechnology .AddTechnologyForm h2 {
   margin-bottom: 5px;
 }
-.AddTechnologyForm textarea,
-.AddTechnologyForm input {
+.AddTechnology .AddTechnologyForm textarea,
+.AddTechnology .AddTechnologyForm input {
   padding: 5px;
   width: 100%;
 }
-.AddTechnologyForm input {
+.AddTechnology .AddTechnologyForm input {
   border-radius: 5px;
   padding: 5px;
   width: 100%;
 }
-.AddTechnologyForm .performsInput {
+.AddTechnology .AddTechnologyForm .performsInput {
   resize: none;
 }
-.AddTechnologyForm .submit-btn {
+.AddTechnology .AddTechnologyForm .submit-btn {
   margin: 5px 0 5px 0;
   font-weight: bolder;
   color: white;

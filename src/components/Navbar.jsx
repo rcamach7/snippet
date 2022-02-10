@@ -10,7 +10,7 @@ function Navbar() {
           Snippet
         </h1>
       </Link>
-      <Link className="link" to="/snippet">
+      <Link className="link link-home" to="/snippet">
         <FontAwesomeIcon icon={faHome} />
       </Link>
     </nav>
